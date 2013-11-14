@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'protected_attributes'
 gem 'twitter-bootstrap-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

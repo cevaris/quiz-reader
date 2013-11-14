@@ -1,6 +1,10 @@
 QuizReader::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+
+
+  match '/signup',  to: 'users#new', via: [:get, :post]
   match '/signin',  to: 'sessions#new', :as => 'signin', via: [:get, :post]
   match '/signout', to: 'sessions#destroy', via: :delete
 
