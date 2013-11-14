@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	include SessionsHelper
 
 	def index
     redirect_to root_url
@@ -18,7 +17,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      # UserMailer.welcome_email(@user, request.env['HTTP_HOST']).deliver
       redirect_to @user
     else
       render 'new'
