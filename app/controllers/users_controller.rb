@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@user = User.find(request[:id])
   end
 
   def new
@@ -17,8 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      UserMailer.welcome_email(@user, request.env['HTTP_HOST']).deliver
-      flash[:success] = t('signup.welcome', app_name: t('global.app_name'))
+      # UserMailer.welcome_email(@user, request.env['HTTP_HOST']).deliver
       redirect_to @user
     else
       render 'new'

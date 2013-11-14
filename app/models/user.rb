@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token ||= SecureRandom.urlsafe_base64
-    self.email = user.email.downcase
-    self.account_name = user.account_name.downcase
+    self.email = self.email.downcase
   end
 
 end
